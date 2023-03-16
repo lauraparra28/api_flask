@@ -1,5 +1,6 @@
 # *Criando uma Api com Flask e Python*
 
+Utilizei o Postman (API Client) que facilita criar, compartilhar, testar e documentar APIs.
 
 ## 1. Criar um endpoint para criar um arquivo.txt
 
@@ -22,5 +23,12 @@ Response:
 
 ## 3. Criar um endpoint para editar arquivo.txt já existente
 
+Utilizando POST enviamos para http://127.0.0.1:5000/edit_file
 
-
+{
+    "mensagem": "Arquivo editado",
+    "data": [
+        "O arquivo criado foi prueba1.txt 1989 \n",
+        " D 1989"
+    ]
+}
