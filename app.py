@@ -7,7 +7,7 @@ list_files = []
 
 @app.route("/")
 def home():
-    return "Bem-vindo"
+    return "Bem-vindo ao ICA"
 
 # CREATE A FILE
 @app.route("/create_file",methods=["POST"])

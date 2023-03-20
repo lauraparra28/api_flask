@@ -36,3 +36,14 @@ Utilizando POST enviamos para http://127.0.0.1:5000/edit_file
     ]
 } 
 ```
+## Descrição do projeto
+Cliente faz uma solicitação para editar um .txt que já existe. O server faz a edição e responde ao client com a alteração feita.
+
+- Bibliotecas necessárias para esta tarefa: Flask, Requests, json.
+- Pesquise como enviar um texto via requisição HTTP (post, put, get, delete).
+- Utilize nomes de variáveis autoexplicativas.
+
+## Para rodar o projeto
+
+1. Execute o arquivo app.py para iniciar o servidor.
+2. O arquivo app_client tem um exemplo de como interagir com a API.
