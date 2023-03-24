@@ -71,4 +71,27 @@ def create_csv():
 
     return jsonify(list_files)
 
+# EDIT A .create_csv
+
+@app.route("/edit_csv",methods=["POST"])
+def edit_csv():
+    response = request.get_json()
+    filename = response.get("filename")
+    data = response.get("data")
+    
+    with open(filename,"a") as f:
+        f.write(f" {data}")
+    
+    with open(filename, "r") as f:
+        conteudo = f.readlines()
+        
+    return jsonify(
+        mensagem = "Arquivo editado",
+        data = conteudo
+    )
+    
+    #Data_films.loc[Data_films.shape[0], :] = ['Toy Story', 7.9, 92,'Woody', 'Sci-Fi']
+    #Data_films.loc[Data_films.shape[0], :] = ['Wednesday', 8.1, 45,'Jenna Ortega','Fantasy']
+    #Data_films.loc[Data_films.shape[0], :] = ['Transformer', 6.1, 110,'Robots','Adventure']
+
 app.run()

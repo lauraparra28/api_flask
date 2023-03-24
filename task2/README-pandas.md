@@ -25,8 +25,10 @@ Criei um dataframe a partir de um dicionário
 
 ```python
 {
-    Data_films.loc[Data_films.shape[0], :] = ['Toy Story', '1999', '7.9','Sci-Fi', '92','Pixar']
-    Data_films.loc[Data_films.shape[0], :] = ['Wednesday', '2022', '8.1','Fantasy', '45','Jenna Ortega']
+    Data_films.loc[Data_films.shape[0], :] = ['Toy Story', 7.9, 92,'Woody', 'Sci-Fi']
+    Data_films.loc[Data_films.shape[0], :] = ['Wednesday', 8.1, 45,'Jenna Ortega','Fantasy']
+    Data_films.loc[Data_films.shape[0], :] = ['Transformer', 6.1, 110,'Robots','Adventure']
+    
     display(Data_films)
 } 
 ``` 
