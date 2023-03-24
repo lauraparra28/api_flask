@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+import pandas as pd
 
 app = Flask(__name__)
 app.config['JSON_SORT_KEYS'] = False
@@ -49,5 +50,5 @@ def edit_file():
         mensagem = "Arquivo editado",
         data = conteudo
     )
-   
+
 app.run()

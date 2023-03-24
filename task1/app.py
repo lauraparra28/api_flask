@@ -49,5 +49,5 @@ def edit_file():
         mensagem = "Arquivo editado",
         data = conteudo
     )
-   
+
 app.run()
