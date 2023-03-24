@@ -1,10 +1,8 @@
-# *Criando uma API com Flask e a biblioteca Pandas*
+# *Tarefa 2: Criando uma API com Flask e a biblioteca Pandas*
 
 Complemente o código com as seguintes requisições:
 
-## Dataset
-
-Devem haver pelo menos 20 linhas. as colunas a serem criadas: Name, Rating, Duration, Gender, Actor
+### Dataset: Devem haver pelo menos 20 linhas. as colunas a serem criadas: Name, Rating, Duration, Gender, Actor
 
 ## A. Importar a biblioteca pandas
 
