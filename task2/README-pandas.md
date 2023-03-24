@@ -11,22 +11,25 @@ Devem haver pelo menos 20 linhas. as colunas a serem criadas: Name, Rating, Dura
 Criei um dataframe a partir de um dicionário
 
 ```python
-import pandas as pd
-films = {'Name' : ['Inception'],
-         'Rating': [8.8],
-         'Duration': [148],
-         'Actor' : ['Leonardo DiCaprio'],
-         'Genre' : ['Sci-Fi']
-          }
-df = pd.df(films)
+    import pandas as pd
+    films = {'Name' : ['Inception'],
+            'Rating': [8.8],
+            'Duration': [148],
+            'Actor' : ['Leonardo DiCaprio'],
+            'Genre' : ['Sci-Fi']
+            }
+    Data_films = pd.DataFrame(films)
+    display(Data_films)
+    Data_films.to_csv('films.csv')
 ```
 
 ## B. Criar um endpoint para editar um arquivo.csv enviando dados para adicionar
 
 ```python
 {
-    import pandas as pd
-    df = pd.read_csv("my_favorite_films.csv")
+    Data_films.loc[Data_films.shape[0], :] = ['Toy Story', '1999', '7.9','Sci-Fi', '92','Pixar']
+    Data_films.loc[Data_films.shape[0], :] = ['Wednesday', '2022', '8.1','Fantasy', '45','Jenna Ortega']
+    display(Data_films)
 } 
 ``` 
 
@@ -40,6 +43,65 @@ Utilizando o método loc, na qual é baseado nas labels da colunas e funciona as
     n = 2
     m = 6
     display(Data_films.loc[n:m])
+} 
+```
+## D. Criar um endpoint para retornar valores filtrados da coluna 'Duration' com valores menores que 120 min;
+
+
+Utilizando o método loc, na qual é baseado nas labels da colunas e funciona assim: primeiro argumento são as linhas e o segundo as colunas a serem buscadas.
+
+```python
+{
+    n = 2
+    m = 6
+    display(Data_films.loc[n:m])
+} 
+```
+
+
+## E. Criar um endpoint para retornar os valores ascendentemente do atributo 'Name'
+
+O Método sort_values(), dá para mexer apenas se baseando nos valores dentro das colunas e linhas do dataframe 
+
+```python
+{
+    # Data_films.columns = sorted(Data_films.columns)
+    Data_films.sort_values('Name', inplace=True)
+    display(Data_films)
+}
+
+```
+
+## F. Criar um endpoint para retornar todos os filmes de 'Sci-Fi'
+
+Utilizando o método loc, na qual é baseado nas labels da colunas e funciona assim: primeiro argumento são as linhas e o segundo as colunas a serem buscadas.
+
+```python
+{
+    films_sciFi = Data_films.loc[ Data_films['Genre'] == 'Sci-Fi' ,['Name', 'Rating', 'Actor'] ] 
+    display( films_sciFi )
+} 
+```
+
+## G. Criar um endpoint para retornar todos os filmes de 'Duration' no minimo 2 horas
+
+Criei uma coluna adicional calculando em duração do filme em horas, a coluna -Duration- está em minutos. Utilizando o método loc, adicionei a condição de 2.1 horas
+
+```python
+{
+    Data_films['Hours']= Data_films['Duration']/60
+    filmes2 = Data_films.loc[Data_films['Hours'] <= 2.1]
+    display (filmes2)
+} 
+```
+
+## H. Criar um endpoint para retornar o promedio do rating dos filmes
+
+O método df.describe() oferece estimativa de parâmetros estatísticos interesantes
+
+```python
+{
+    Data_films.describe()
 } 
 ```
 
