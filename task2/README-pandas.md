@@ -52,9 +52,8 @@ Utilizando o método loc, na qual é baseado nas labels da colunas e funciona as
 
 ```python
 {
-    n = 2
-    m = 6
-    display(Data_films.loc[n:m])
+    filmes120 = Data_films.loc[Data_films['Duration'] <= 120]
+    display (filmes120)
 } 
 ```
 
