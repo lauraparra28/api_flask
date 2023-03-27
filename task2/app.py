@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify
 import pandas as pd
-from data import films, new_films
+from info_data import films, new_films
 
 app = Flask(__name__)
 app.config['JSON_SORT_KEYS'] = False
@@ -61,8 +61,8 @@ def create_csv():
     
     with open(filename,"w") as f:
         
-        Data_films = pd.DataFrame(films)
-        Data_films.to_csv('films.csv')
+        data_films = pd.DataFrame(films)
+        data_films.to_csv('films.csv')
 
     return jsonify(list_files)
 
