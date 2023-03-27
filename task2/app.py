@@ -111,5 +111,19 @@ def filter_data():
     contents = hf.filter_csv(filename, column, value)
     
     return contents  
+
+# FILTRO de filmes por categoria 'Genre': SciFi
+
+@app.route("/filter_genre",methods=["POST"])
+def filter_genre():
+    post_res = request.get_json()
+    filename = post_res.get("filename")
+    filter = post_res.get("filter")
+  
+    column = filter.get("column")
+    tipo = filter.get("tipo")
+    contents = hf.func_genre(filename, column, tipo)
+    
+    return contents  
     
 app.run()
