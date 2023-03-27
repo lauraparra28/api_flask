@@ -94,8 +94,22 @@ def filter_range():
     num_n = filter.get("num_n")
     num_m = filter.get("num_m")
     contents = hf.filter_range_csv(filename, num_n, num_m)
-     
+    
     return contents
     
+#  FILTRO por coluna definida e valor desejado 'x'
+
+@app.route("/filter_data",methods=["POST"])
+def filter_data():
+   
+    post_res = request.get_json()
+    filename = post_res.get("filename")
+    filter = post_res.get("filter")
+  
+    column = filter.get("column")
+    value = filter.get("value")
+    contents = hf.filter_csv(filename, column, value)
+    
+    return contents  
     
 app.run()
