@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify
 import pandas as pd
+import helper_function as hf
 from info_data import films, new_films
 
 app = Flask(__name__)
@@ -81,5 +82,20 @@ def edit_csv():
         data = message
     )
     
+#  FILTRO para ler de n a m linhas
 
+@app.route("/filter_range",methods=["POST"])
+def filter_range():
+   
+    post_res = request.get_json()
+    filename = post_res.get("filename")
+    filter = post_res.get("filter")
+  
+    num_n = filter.get("num_n")
+    num_m = filter.get("num_m")
+    contents = hf.filter_range_csv(filename, num_n, num_m)
+     
+    return contents
+    
+    
 app.run()

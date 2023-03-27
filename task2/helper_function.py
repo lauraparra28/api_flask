@@ -1,14 +1,14 @@
 import os
 import pandas as pd
 
-def check_file_exists(file_name: str):
+def check_file_exists(filename: str):
     """
     This function helps to check if the file that the user is trying to create
     its already in the folder.
     Args:       file_name (str): file name
     Returns:    bool: True if file exists, False if file doesn't exist.
     """
-    if(os.path.exists(file_name)):
+    if(os.path.exists(filename)):
         return True
     else:
         return False
