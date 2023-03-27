@@ -7,7 +7,6 @@ films = {
                  
 }
 
-# novos filmes para adicionar ao df
 new_films = { 
     'Name' :    ['Toy Story', 'Wednesday', 'Transformer', 'Finding to Dolly', 'Pirates of the Caribbean'],
     'Rating':   [7.9, 8.1, 6.1, 5.5, 6.5],
