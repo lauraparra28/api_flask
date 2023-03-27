@@ -41,8 +41,7 @@ Utilizando o método loc, na qual é baseado nas labels da colunas e funciona as
 
 ```python
 {
-    n = 2
-    m = 6
+    n = 2,  m = 6
     display(Data_films.loc[n:m])
 } 
 ```
@@ -65,7 +64,6 @@ O Método sort_values(), dá para mexer apenas se baseando nos valores dentro da
 
 ```python
 {
-    # Data_films.columns = sorted(Data_films.columns)
     Data_films.sort_values('Name', inplace=True)
     display(Data_films)
 }
