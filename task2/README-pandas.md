@@ -25,11 +25,12 @@ Criei um dataframe a partir de um dicionário
 
 ```python
 {
-    Data_films.loc[Data_films.shape[0], :] = ['Toy Story', 7.9, 92,'Woody', 'Sci-Fi']
     Data_films.loc[Data_films.shape[0], :] = ['Wednesday', 8.1, 45,'Jenna Ortega','Fantasy']
     Data_films.loc[Data_films.shape[0], :] = ['Transformer', 6.1, 110,'Robots','Adventure']
-    
-    display(Data_films)
+    Data_films.loc[Data_films.shape[0], :] = ['Finding to Dolly', 5.5, 121,'Nemo','Infantil']
+    Data_films.loc[Data_films.shape[0], :] = ['Pirates of the Caribbean', 6.5, 151,'Capitan Sparrow','Adventure']
+
+    Data_films.to_csv('films.csv')
 } 
 ``` 
 
