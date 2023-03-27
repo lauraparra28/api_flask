@@ -20,7 +20,7 @@ def create_file():
     
     with open(filename,"w") as f:
         f.write(f"O arquivo criado foi {filename}")
-    
+    f.close()
     return jsonify(list_files)
 
 # READ A FILE .txt
@@ -28,10 +28,11 @@ def create_file():
 def read_file():
     response = request.get_json()
     filename = response.get("filename")
+    print(filename)
    
     with open(filename,"r") as f:
         conteudo = f.readlines()
-    
+    f.close()
     return jsonify(conteudo)
 
 # EDIT A FILE .txt
@@ -39,14 +40,14 @@ def read_file():
 def edit_file():
     response = request.get_json()
     filename = response.get("filename")
-    data = response.get("data")
+    data = response.get("message")
     
     with open(filename,"a") as f:
         f.write(f" {data}")
-    
+    f.close()
     with open(filename, "r") as f:
         conteudo = f.readlines()
-        
+    f.close()    
     return jsonify(
         mensagem = "Arquivo editado",
         data = conteudo
@@ -59,11 +60,9 @@ def create_csv():
     filename = response.get("filename")
     list_files.append(response)
     
-    with open(filename,"w") as f:
-        
-        data_films = pd.DataFrame(films)
-        data_films.to_csv('films.csv')
-
+    data_films = pd.DataFrame(films)
+    data_films.to_csv(filename, index=False)
+    
     return jsonify(list_files)
 
 # EDIT A .create_csv
@@ -73,12 +72,13 @@ def edit_csv():
     response = request.get_json()
     filename = response.get("filename")
     message = response.get("message")
-    mode = response.get("mode")
     
+    data_films = pd.DataFrame(message)
+    data_films.to_csv(filename, index=False, header=False,mode="a")
         
     return jsonify(
         mensagem = "Arquivo editado",
-        data = conteudo
+        data = message
     )
     
 
