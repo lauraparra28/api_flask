@@ -12,39 +12,8 @@ def check_file_exists(file_name: str):
         return True
     else:
         return False
-    
-def add_data_to_csv(filename:str, data:dict, mode:str="w"):
-    """
-    Function to add data to a csv file
-    Args:
-        filename (str): filename to be created or appended
-        data (dict): data to be added to the csv file
-        mode (str, optional): Select between "w" to write or "a" to append. Defaults to "w".
-    """
-    data_frame = pd.DataFrame.from_dict(data)
-    
-    if mode == "w":
-        data_frame.to_csv(filename, index=False)
-    elif mode == "a": 
-        data_frame.to_csv(filename, index=False, header=False, mode="a")
-        
-def filter_csv(filename:str, column:str, value:float):
-    """
-    Function to filter a csv file by a column and a value
-    Args:
-        filename (str): filename to be filtered
-        columns (str): column to be filtered
-        value (float): value to be filtered
-    Returns:
-        result: filtered json
-    """
-    data_frame = pd.read_csv(filename)
-    data_frame = data_frame[data_frame[column] < value]
-    result = data_frame.to_json(orient="split", index=False)
 
-    return result
-
-def filter_range_csv(filename:str, value1:int, value2:int):
+def filter_range_csv(filename:str, num_n:int, num_m:int):
     """
     Function to filter a csv file by a column and a range of values
     Args:
@@ -56,8 +25,25 @@ def filter_range_csv(filename:str, value1:int, value2:int):
         result: filtered json
     """
    
-    data_frame = pd.read_csv(filename)
-    data_frame = data_frame.loc[value1:value2]
-    result = data_frame.to_json(orient="split", index=False)
+    data_file = pd.read_csv(filename)
+    data_file = data_file.loc[num_n:num_m]
+    result = data_file.to_json(orient="split", index=False)
 
     return result
+  
+def filter_csv(filename:str, column:str, value:float):
+    """
+    Function to filter a csv file by a column and a value
+    Args:
+        filename (str): filename to be filtered
+        columns (str): column to be filtered
+        value (float): value to be filtered
+    Returns:
+        result: filtered json
+    """
+    data_file = pd.read_csv(filename)
+    data_file = data_file[data_file[column] < value]
+    result = data_file.to_json(orient="split", index=False)
+
+    return result
+
