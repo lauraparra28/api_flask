@@ -2,6 +2,10 @@
 
 Complemente o código com as seguintes requisições:
 
+## Conteudo
+
+[Importar Biblioteca]()
+
 ### Dataset: Devem haver pelo menos 20 linhas. as colunas a serem criadas: Name, Rating, Duration, Gender, Actor
 
 ## A. Importar a biblioteca pandas
